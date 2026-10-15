@@ -8,4 +8,4 @@
 
 このフォルダの中身を、GitHubの `nanashinogonn.github.io` リポジトリの直下にそのまま置く
 (ユーザーサイトのリポジトリでないと、ドメイン直下の `.well-known` に置けない)。
-`i/index.html` の `APP_STORE_ID` は App Store Connect のアプリの Apple ID に差し替える。
+`i/index.html` の `APP_STORE_ID` は App Store Connect のアプリの Apple ID(6800409811)。
