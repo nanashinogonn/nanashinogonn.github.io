@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["W2WBU2B77K.com.taggdo.scrapp"],
+        "components": [
+          { "/": "/i/*", "comment": "友達招待のリンク" }
+        ]
+      }
+    ]
+  }
+}

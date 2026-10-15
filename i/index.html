@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>scrappに招待されました</title>
+<meta property="og:title" content="scrappに招待されました">
+<meta property="og:description" content="撮ったら、シールにもポラロイドにも。フレンドだけのフィードで一緒にスクラップしよう">
+<style>
+  :root { --paper: #f6efe3; --ink: #2b2622; --accent: #e8573c; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--paper); color: var(--ink);
+    font-family: -apple-system, "Hiragino Sans", sans-serif; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; padding: 32px 16px;
+  }
+  main { max-width: 360px; width: 100%; text-align: center; }
+  .logo {
+    display: inline-block; background: var(--accent); color: #fff; font-size: 40px;
+    padding: 6px 20px; transform: rotate(-3deg); margin-bottom: 28px; letter-spacing: 1px;
+    clip-path: polygon(2% 6%, 30% 0, 62% 5%, 98% 1%, 100% 52%, 97% 96%, 66% 100%, 34% 95%, 0 100%, 3% 50%);
+  }
+  h1 { font-size: 22px; margin: 0 0 12px; }
+  p { font-size: 15px; font-weight: 500; line-height: 1.7; opacity: .75; margin: 0 0 28px; }
+  .button {
+    display: block; width: 100%; padding: 16px; border-radius: 14px; margin-bottom: 14px;
+    font-size: 17px; font-weight: 700; text-decoration: none;
+  }
+  .primary { background: var(--accent); color: #fff; }
+  .secondary { background: #fff; color: var(--ink); border: 2px solid rgba(43,38,34,.12); }
+  .note { font-size: 13px; opacity: .6; margin-top: 18px; }
+</style>
+</head>
+<body>
+<main>
+  <div class="logo">scrapp</div>
+  <h1>scrappに招待されました！</h1>
+  <p>撮ったら、シールにもポラロイドにも。<br>フレンドだけのフィードで一緒にスクラップしよう</p>
+
+  <a id="open" class="button primary" href="#">アプリで開いてフレンドになる</a>
+  <a id="store" class="button secondary" href="#">App Storeで入手</a>
+
+  <p class="note">まだアプリを入れていない人は、入れて登録した後に<br>もう一度このリンクを開くとフレンドになれます</p>
+</main>
+<script>
+  // ⚠️ App Store ConnectのアプリのApple ID(数字)。「アプリ情報」の「Apple ID」欄に出ている
+  var APP_STORE_ID = "0000000000";
+
+  var token = new URLSearchParams(location.search).get("t") || "";
+  if (!/^[A-Za-z0-9]{1,64}$/.test(token)) token = "";
+
+  document.getElementById("store").href = "https://apps.apple.com/app/id" + APP_STORE_ID;
+  var open = document.getElementById("open");
+  if (token) {
+    // LINE等のアプリ内ブラウザではユニバーサルリンクでアプリが開かないことがあるので、
+    // 自前のURLスキームで開くボタンを用意する
+    open.href = "scrapp://invite/" + token;
+  } else {
+    open.style.display = "none";
+  }
+</script>
+</body>
+</html>
